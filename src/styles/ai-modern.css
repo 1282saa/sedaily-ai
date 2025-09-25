@@ -1,0 +1,589 @@
+/* =============================================
+   AI 서비스 페이지 - 모던 디자인 시스템
+   레퍼런스 기반 깔끔하고 현대적인 스타일
+   ============================================= */
+
+/* 색상 변수 - 깔끔하고 모던한 팔레트 */
+:root {
+  --nexus-primary: #4F46E5;
+  --nexus-secondary: #6366F1;
+  --nova-primary: #8B5CF6;
+  --nova-secondary: #A78BFA;
+  
+  --gray-50: #F9FAFB;
+  --gray-100: #F3F4F6;
+  --gray-200: #E5E7EB;
+  --gray-300: #D1D5DB;
+  --gray-400: #9CA3AF;
+  --gray-500: #6B7280;
+  --gray-600: #4B5563;
+  --gray-700: #374151;
+  --gray-800: #1F2937;
+  --gray-900: #0F172A;
+  
+  --white: #FFFFFF;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* =============================================
+   AI NEXUS 페이지 스타일
+   ============================================= */
+
+/* Hero Section - 깔끔한 그라데이션 배경 */
+.nexus-hero {
+  position: relative;
+  background: linear-gradient(135deg, #4F46E5 0%, #6366F1 100%);
+  padding: 120px 0 80px;
+  overflow: hidden;
+}
+
+.nexus-hero .hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+.nexus-hero .hero-gradient {
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 60%);
+  animation: float 20s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(-10%, -10%) rotate(0deg); }
+  50% { transform: translate(10%, 10%) rotate(180deg); }
+}
+
+.nexus-hero .hero-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.nexus-hero .hero-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 8px 24px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.nexus-hero .hero-title {
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 20px;
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+.nexus-hero .hero-subtitle {
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* Tools Section - 카드 그리드 */
+.nexus-tools {
+  padding: 80px 0;
+  background: var(--gray-50);
+}
+
+.nexus-tools .tools-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.nexus-tool-card {
+  background: var(--white);
+  border-radius: 24px;
+  padding: 40px 32px;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid var(--gray-200);
+  cursor: pointer;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.nexus-tool-card:hover {
+  transform: translateY(-12px);
+  box-shadow: var(--shadow-xl);
+  border-color: transparent;
+}
+
+.nexus-tool-card .tool-phase {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.nexus-tool-card .phase-label {
+  padding: 6px 12px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.phase-active {
+  background: #D1FAE5;
+  color: #065F46;
+}
+
+.phase-dev {
+  background: #FEF3C7;
+  color: #92400E;
+}
+
+.phase-planned {
+  background: #DBEAFE;
+  color: #1E40AF;
+}
+
+/* 아이콘 스타일 - 레퍼런스 기반 */
+.tool-icon-wrapper {
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.tool-icon-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: inherit;
+  filter: blur(20px);
+  opacity: 0.3;
+  transform: scale(1.2);
+}
+
+.tool-icon-text {
+  position: relative;
+  z-index: 1;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.5px;
+}
+
+.icon-gradient-blue {
+  background: linear-gradient(135deg, #3B82F6, #2563EB);
+}
+
+.icon-gradient-purple {
+  background: linear-gradient(135deg, #8B5CF6, #7C3AED);
+}
+
+.icon-gradient-green {
+  background: linear-gradient(135deg, #10B981, #059669);
+}
+
+.icon-gradient-orange {
+  background: linear-gradient(135deg, #F97316, #EA580C);
+}
+
+.icon-gradient-teal {
+  background: linear-gradient(135deg, #14B8A6, #0D9488);
+}
+
+.icon-gradient-indigo {
+  background: linear-gradient(135deg, #6366F1, #4F46E5);
+}
+
+.nexus-tool-card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--gray-900);
+  margin-bottom: 12px;
+  letter-spacing: -0.3px;
+}
+
+.nexus-tool-card p {
+  font-size: 14px;
+  color: var(--gray-600);
+  line-height: 1.7;
+  flex-grow: 1;
+}
+
+/* Features Section */
+.nexus-features {
+  padding: 80px 0;
+  background: var(--white);
+  border-top: 1px solid var(--gray-200);
+}
+
+.nexus-features .section-title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 48px;
+  letter-spacing: -0.5px;
+}
+
+.nexus-features .features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.nexus-features .feature-card {
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.nexus-features .feature-card:hover {
+  transform: translateY(-8px);
+}
+
+.nexus-features .feature-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.nexus-features .feature-card h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--gray-900);
+  margin-bottom: 8px;
+}
+
+.nexus-features .feature-card p {
+  font-size: 14px;
+  color: var(--gray-600);
+  line-height: 1.5;
+}
+
+/* Footer */
+.nexus-footer {
+  background: var(--gray-900);
+  color: var(--white);
+  padding: 40px 0;
+  text-align: center;
+}
+
+.nexus-footer .footer-content h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.nexus-footer .footer-content p {
+  font-size: 14px;
+  color: var(--gray-400);
+}
+
+/* =============================================
+   AI NOVA 페이지 스타일
+   ============================================= */
+
+.nova-hero {
+  position: relative;
+  background: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%);
+  padding: 120px 0 80px;
+  overflow: hidden;
+}
+
+.nova-hero .hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+.nova-hero .hero-gradient {
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(circle at 70% 50%, rgba(255, 255, 255, 0.15) 0%, transparent 60%);
+  animation: float 25s ease-in-out infinite reverse;
+}
+
+.nova-hero .hero-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.nova-hero .hero-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 8px 24px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.nova-hero .hero-title {
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 20px;
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+.nova-hero .hero-subtitle {
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* Services Section */
+.nova-services {
+  padding: 80px 0;
+  background: var(--gray-50);
+}
+
+.nova-services .nova-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.nova-service-card {
+  background: var(--white);
+  border-radius: 24px;
+  padding: 40px 32px;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid var(--gray-200);
+  cursor: pointer;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.nova-service-card:hover {
+  transform: translateY(-12px);
+  box-shadow: var(--shadow-xl);
+  border-color: transparent;
+}
+
+.nova-service-card .service-phase {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.service-icon-wrapper {
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-icon-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: inherit;
+  filter: blur(20px);
+  opacity: 0.3;
+  transform: scale(1.2);
+}
+
+.service-icon-text {
+  position: relative;
+  z-index: 1;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.5px;
+}
+
+.nova-service-card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--gray-900);
+  margin-bottom: 12px;
+  letter-spacing: -0.3px;
+}
+
+.nova-service-card p {
+  font-size: 14px;
+  color: var(--gray-600);
+  line-height: 1.7;
+  flex-grow: 1;
+}
+
+/* Features Section */
+.nova-features {
+  padding: 80px 0;
+  background: var(--white);
+  border-top: 1px solid var(--gray-200);
+}
+
+.nova-features .section-title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 48px;
+  letter-spacing: -0.5px;
+}
+
+.nova-features .features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.nova-features .feature-card {
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.nova-features .feature-card:hover {
+  transform: translateY(-8px);
+}
+
+.nova-features .feature-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.nova-features .feature-card h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--gray-900);
+  margin-bottom: 8px;
+}
+
+.nova-features .feature-card p {
+  font-size: 14px;
+  color: var(--gray-600);
+  line-height: 1.5;
+}
+
+/* Footer */
+.nova-footer {
+  background: var(--gray-900);
+  color: var(--white);
+  padding: 40px 0;
+  text-align: center;
+}
+
+.nova-footer .footer-content h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.nova-footer .footer-content p {
+  font-size: 14px;
+  color: var(--gray-400);
+}
+
+/* =============================================
+   반응형 디자인
+   ============================================= */
+
+@media (max-width: 1024px) {
+  .nexus-tools .tools-grid,
+  .nova-services .nova-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  
+  .nexus-features .features-grid,
+  .nova-features .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .nexus-hero .hero-title,
+  .nova-hero .hero-title {
+    font-size: 36px;
+  }
+  
+  .nexus-hero .hero-subtitle,
+  .nova-hero .hero-subtitle {
+    font-size: 18px;
+  }
+  
+  .nexus-tools .tools-grid,
+  .nova-services .nova-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .nexus-features .features-grid,
+  .nova-features .features-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  
+  .nexus-tool-card,
+  .nova-service-card {
+    min-height: auto;
+    padding: 32px 24px;
+  }
+}
